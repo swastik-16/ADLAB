@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse Number</title>
+  </head>
+  <body>
+    <input type="text" id="myTextbox" placeholder="Enter a number" />
+    <button onclick="checkEligible()">Submit</button>
+    <p id="output"></p>
+    <script>
+      function checkEligible() {
+        let number = document.getElementById('myTextbox').value;
+        let original = parseInt(number); // Convert input to integer
+
+        if (isNaN(original)) {
+          document.getElementById('output').innerText = 'Please enter a valid number.';
+          return;
+        }
+
+        let reverse = 0;
+        let temp = original;
+
+        while (temp > 0) {
+          let digit = temp % 10;
+          reverse = reverse * 10 + digit;
+          temp = Math.floor(temp / 10);
+        }
+
+        document.getElementById('output').innerText =` Reverse : ${reverse}`;
+      }
+    </script>
+</body>
+</html>

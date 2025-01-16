@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Integer</title>
+</head>
+<body>
+    <input type="text" id="myTextbox" placeholder="Enter an integer">
+    <button onclick="start()">Submit</button>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+
+    <script>
+        function start(){
+            const input = document.getElementById('myTextbox');
+            const value = parseInt(input.value, 10);
+            printInteger(value);
+            checkPrime(value);
+            checkPalindrome(value);
+        }
+        function printInteger(value){
+            document.getElementById('output1').innerText =` You entered: ${value}`;
+        }
+        function checkPrime(value){
+            var state  = 'true';
+            for(var i = 2;i<value;i++){
+                if(value%i==0){
+                    state = 'false';
+                    break;
+                }
+            }
+            if(state == 'true'){
+                document.getElementById('output2').innerText = "number is prime";
+            }
+            else{
+                document.getElementById('output2').innerText = "number is not prime";
+            }
+        }
+        function checkPalindrome(number){
+            let original = number
+            let reverse = 0
+
+            while (original > 0){
+                let digit = original % 10
+                reverse = reverse * 10 + digit
+                original = Math.floor(original / 10)
+            }
+
+            if (number == reverse) {
+                document.getElementById('output3').innerText = "number is palindrome";
+            } else {
+                document.getElementById('output3').innerText = "number is not palindrome";
+            }
+
+        }
+    </script>
+</body>
+</html>
