@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Number</title>
+</head>
+<body>
+    <h2>Enter an integer:</h2>
+    <input type="text" id="numInput">
+    <button onclick="checkNumber()">Check Number</button>
+    <p id="result"></p>
+    <script>
+        function checkNumber() {
+            const num = parseInt(document.getElementById('numInput').value);
+            let cnt=0;
+            if(num==1){
+                document.getElementById('result').textContent = "It is a special number.";
+                return;
+            }
+            for(let i=0;i<num/2;i++){
+                if(num%i==0){
+                    cnt++;
+                }
+            }
+            if(cnt>=2){
+                document.getElementById('result').textContent = "It is not a prime number.";
+            }else{
+                document.getElementById('result').textContent = "It is a prime number.";
+            }
+        }
+    </script>
+</body>
+</html>
